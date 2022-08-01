@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:calcite"
+    },
+    "T": {
+      "item": "minecraft:tuff"
+    },
+    "A": {
+      "item": "minecraft:amethyst_cluster"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "N A",
+    "TTT",
+    "C C"
+  ],
+  "result": {
+    "item": "scythe:scythe_table"
+  }
+}

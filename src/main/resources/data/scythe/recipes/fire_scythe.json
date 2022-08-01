@@ -1,0 +1,32 @@
+{
+  "type": "scythe:scythe_assembly",
+  "ingredients": [
+    {
+      "item": "scythe:tetherite_ingot"
+    },
+    {
+      "item": "scythe:tetherite_ingot"
+    },
+    {
+      "item": "scythe:tetherite_ingot"
+    },
+    {
+      "item": "scythe:tetherite_ingot"
+    },
+    {
+      "item": "scythe:tetherite_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "output": {
+    "item": "scythe:fire_scythe"
+  }
+}

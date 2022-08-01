@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "scythe:block/scythe_table" },
+    "facing=east": { "model": "scythe:block/scythe_table", "y": 90 },
+    "facing=south": { "model": "scythe:block/scythe_table", "y": 180 },
+    "facing=west": { "model": "scythe:block/scythe_table", "y": 270 }
+  }
+}

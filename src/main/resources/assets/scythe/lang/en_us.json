@@ -1,0 +1,20 @@
+{
+  "itemGroup.scythe_scythes_tab": "Scythes",
+  "itemGroup.scythe_accessories_tab": "Scythe Accessories",
+  "itemGroup.scythe_projectiles_tab": "Scythe Projectiles",
+
+  "item.scythe.reveal_tooltip_tooltip": "Press SHIFT to reveal tooltip",
+
+  "item.scythe.scythe": "Scythe",
+  "item.scythe.blood_stream": "Blood Stream",
+  "item.scythe.scythe.tooltip": "Right click to use BLOOD STREAM, the scythe's ultimate.\nSummons a projectile which deals damage, REMOVES all EFFECTS from the shooter and APPLIES them to hit ENTITIES.\n\nCosts the shooter 4 health points.",
+
+  "item.scythe.fire_scythe": "Fireboerd's Scythe",
+  "item.scythe.tethering_fire": "Tethering Fire",
+  "item.scythe.fire_scythe.tooltip": "Right click to use TETHERING INFERNO, the scythe's ultimate.\nSummons multiple projectiles which BURN everything they hit, deal damage to hit entities and make them LEVITATE.\n\nThe shooter will be set on fire for 4 to 8 seconds.",
+
+  "item.scythe.tetherite_ingot": "Tetherite Ingot",
+
+  "block.scythe.scythe_table": "Scythe Table",
+  "block.scythe.scythe_table.gui.display_name": "Scythe Table"
+}
