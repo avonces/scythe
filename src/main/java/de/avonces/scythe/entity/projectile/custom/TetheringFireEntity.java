@@ -12,7 +12,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -25,17 +24,20 @@ import net.minecraft.world.phys.EntityHitResult;
 import java.util.Random;
 
 public class TetheringFireEntity extends ThrowableItemProjectile {
+    private final Level level;
     private final LivingEntity shooter;
 
     public TetheringFireEntity(EntityType<? extends TetheringFireEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
 
+        this.level = pLevel;
         this.shooter = null;
     }
 
     public TetheringFireEntity(Level pLevel, LivingEntity pShooter) {
         super(ModEntityTypes.TETHERING_FIRE_ENTITY.get(), pShooter, pLevel);
 
+        this.level = pLevel;
         this.shooter = pShooter;
     }
 
@@ -49,15 +51,15 @@ public class TetheringFireEntity extends ThrowableItemProjectile {
     }
 
     protected Item getDefaultItem() {
-        // DO NOT CHANGE, THE ITEM TEXTURE WILL NOT RENDER CORRECTLY ANYMORE
-        // return ModItems.TETHERING_FIRE_ITEM.get();
-        return Items.SNOWBALL;
+        return ModItems.TETHERING_FIRE_ITEM.get();
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
 
         createExplosion();
+
+        this.kill();
 
         if (entity instanceof LivingEntity livingEntity && livingEntity != this.shooter) {
             // Damage hit entities
@@ -72,10 +74,9 @@ public class TetheringFireEntity extends ThrowableItemProjectile {
     }
 
     protected void onHitBlock(BlockHitResult pResult) {
-        Level level = this.shooter.level;
         Direction direction = pResult.getDirection();
         BlockPos blockPos = pResult.getBlockPos();
-        BlockState blockState = level.getBlockState(blockPos);
+        BlockState blockState = this.level.getBlockState(blockPos);
 
         createExplosion();
 
@@ -83,13 +84,13 @@ public class TetheringFireEntity extends ThrowableItemProjectile {
 
         if (!CampfireBlock.canLight(blockState) && !CandleBlock.canLight(blockState) && !CandleCakeBlock.canLight(blockState)) {
             blockPos = blockPos.m_121945_(direction);
-            if (BaseFireBlock.canBePlacedAt(level, blockPos, pResult.getDirection())) {
-                level.setBlockAndUpdate(blockPos, BaseFireBlock.getState(level, blockPos));
-                level.gameEvent(this.shooter, GameEvent.BLOCK_PLACE, blockPos);
+            if (BaseFireBlock.canBePlacedAt(this.level, blockPos, pResult.getDirection())) {
+                this.level.setBlockAndUpdate(blockPos, BaseFireBlock.getState(this.level, blockPos));
+                this.level.gameEvent(this.shooter, GameEvent.BLOCK_PLACE, blockPos);
             }
         } else {
-            level.setBlockAndUpdate(blockPos, blockState.setValue(BlockStateProperties.LIT, true));
-            level.gameEvent(this.shooter, GameEvent.BLOCK_CHANGE, blockPos);
+            this.level.setBlockAndUpdate(blockPos, blockState.setValue(BlockStateProperties.LIT, true));
+            this.level.gameEvent(this.shooter, GameEvent.BLOCK_CHANGE, blockPos);
         }
     }
 }
