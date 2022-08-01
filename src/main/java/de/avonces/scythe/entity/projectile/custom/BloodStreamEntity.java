@@ -9,7 +9,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -37,9 +36,7 @@ public class BloodStreamEntity extends ThrowableItemProjectile {
     }
 
     protected Item getDefaultItem() {
-        // DO NOT CHANGE, THE ITEM TEXTURE WILL NOT RENDER CORRECTLY ANYMORE
-        // return ModItems.BLOOD_STREAM_ITEM.get();
-        return Items.SNOWBALL;
+        return ModItems.BLOOD_STREAM_ITEM.get();
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
