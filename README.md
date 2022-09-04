@@ -2,5 +2,4 @@
 
 # scythe
 This minecraft mod adds scythes to the game.
-
-WORK IN PROGRESS
+And has some bugs. But we don't talk about that.
